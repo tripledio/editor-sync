@@ -1,0 +1,32 @@
+<idea-plugin>
+    <id>io.tripled.idea.editor-sync</id>
+    <name>Editor Synchronization</name>
+    <vendor email="editor-sync@tripled.io" url="https://www.tripled.io">Triple D</vendor>
+
+    <description><![CDATA[
+    A simple plugin which syncs your open editors to a file that can be shared with other users.<br>
+    ]]></description>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup id="EditorSync Notification Group" displayType="BALLOON"/>
+    </extensions>
+
+    <actions>
+        <group id="editor-sync" description="Actions related to editor-sync" />
+        <!-- Add your actions here -->
+        <action id="io.tripled.idea.editorsync.action.SaveCurrentEditorsAction"
+                class="io.tripled.idea.editorsync.action.SaveCurrentEditorsAction" text="Save Currently Opened Editors"
+                description="This action will save all the currently opened editors.">
+            <add-to-group group-id="editor-sync" anchor="first"/>
+        </action>
+        <action id="io.tripled.idea.editorsync.action.OpenEditorsAction"
+                class="io.tripled.idea.editorsync.action.OpenEditorsAction" text="Open Saved Editors"
+                description="Open the previously saved editors">
+            <add-to-group group-id="editor-sync" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>
